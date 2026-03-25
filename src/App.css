@@ -7,5 +7,19 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+.main-content {
   padding: 2rem;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.dashboard {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }

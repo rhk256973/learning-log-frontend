@@ -1,0 +1,28 @@
+.form-section {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.form-section form div {
+  margin-bottom: 1rem;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  padding: 0.6rem;
+  box-sizing: border-box;
+}
+
+.form-section button {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
