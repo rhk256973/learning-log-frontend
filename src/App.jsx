@@ -44,7 +44,7 @@ function App() {
       <main className="main-content">
         <section className="intro">
         <h1>Learn Log</h1>
-        <p>Track your learning topics and entries</p>
+        <p>Track Your Learning Journey</p>
         </section>
 
         <section className="dashboard">

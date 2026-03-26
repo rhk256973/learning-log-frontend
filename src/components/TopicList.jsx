@@ -4,9 +4,12 @@ import './TopicList.css';
 function TopicList(props) {
     return (
         <section className="topics-section">
-            <h2>My Topics</h2>
+            <h2>My Topics({props.topics.length})</h2>
 
-            {props.topics.map((topic) => (
+            {props.topics.length === 0 ? (
+                <p>No topics added yet. Add your first topic!</p>
+            ) : (
+            props.topics.map((topic) => (
                 <TopicCard
                     key={topic.id}
                     id={topic.id}
@@ -15,7 +18,7 @@ function TopicList(props) {
                     description={topic.description}
                     onDeleteTopic={props.onDeleteTopic}
                 />
-            ))}
+            )))}
         </section>
     );
 }
