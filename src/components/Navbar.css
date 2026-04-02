@@ -3,14 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #243447;
-  border-bottom: 1px solid #3a4b5c;
+  background-color: #00684a;
+  border-bottom: 1px solid #00533b;
 }
 
 .navbar h2 {
   margin: 0;
-  color: #ffffff;
-  font-size: 1.8rem;
+  color: white;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -24,11 +24,12 @@
 
 .navbar li {
   cursor: pointer;
-  color: #dbe7f3;
+  color: white;
   font-size: 1.1rem;
-  transition: color 0.2s ease;
+  font-weight: 600;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .navbar li:hover {
-  color: #7cc6fe;
+  opacity: 0.8;
 }

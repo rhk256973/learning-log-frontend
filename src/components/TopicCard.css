@@ -1,11 +1,37 @@
 .topic-card {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
+  background-color: #f9fcfa;
+  border: 1px solid #d1e7dd;
+  border-radius: 12px;
+  padding: 1.5rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .topic-card h3 {
   margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #00684a;
+}
+
+.topic-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.topic-card button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #e5e7eb;
+  color: #111827;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.topic-card button:hover {
+  background-color: #d1d5db;
 }
