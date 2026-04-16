@@ -2,66 +2,67 @@ import { useState } from 'react';
 import './TopicForm.css';
 
 function TopicForm(props) {
-    const[title, setTitle] = useState('');
-    const[category, setCategory] = useState('');
-    const[description, setDescription] = useState('');
+  const [title, setTitle] = useState('');
+  const [goal, setGoal] = useState('');
+  const [status, setStatus] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        if (!title.trim() || !category.trim() || !description.trim()) {
-            alert('Please fill in all fields');
-            return;
-        }
+    if (!title.trim() || !goal.trim() || !status.trim()) {
+      alert('Please fill in all fields');
+      return;
+    }
 
-        const newTopic = {
-            title,
-            category,
-            description,
-        };
-
-        props.onAddTopic(newTopic);
-
-        setTitle('');
-        setCategory('');
-        setDescription('');
+    const newTopic = {
+      title,
+      goal,
+      status,
     };
 
-    return (
-        <section className="form-section">
-            <h2>Add New Topic
+    props.onAddTopic(newTopic);
 
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Title:</label>
-                        <input type="text" 
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        />
-                    </div>
+    setTitle('');
+    setGoal('');
+    setStatus('');
+  };
 
-                    <div>
-                        <label>Category:</label>
-                        <input type="text" 
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        />
-                    </div>
+  return (
+    <section className="form-section">
+      <h2>Add New Topic</h2>
 
-                    <div>
-                        <label>Description:</label>
-                        <textarea 
-                            row="4"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        ></textarea>
-                    </div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Title:</label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
 
-                    <button type="submit">Add Topic</button>
-                </form>
-            </h2>
-        </section>
-    );
+        <div>
+          <label>Goal:</label>
+          <input
+            type="text"
+            value={goal}
+            onChange={(e) => setGoal(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Status:</label>
+          <input
+            type="text"
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+          />
+        </div>
+
+        <button type="submit">Add Topic</button>
+      </form>
+    </section>
+  );
 }
 
 export default TopicForm;

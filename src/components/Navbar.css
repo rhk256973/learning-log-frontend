@@ -33,3 +33,16 @@
 .navbar li:hover {
   opacity: 0.8;
 }
+
+.logout-item {
+  color: #ffffff;
+  background-color: #0f4c3a;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.logout-item:hover {
+  background-color: #0b3b2d;
+}

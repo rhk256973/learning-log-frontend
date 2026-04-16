@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TopicForm from './TopicForm';
 import TopicList from './TopicList';
 
@@ -7,19 +7,66 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Function to add a new topic to the list
-  const addTopic = (newTopic) => {
-    const topicToAdd = {
-      id: Date.now(),
-      ...newTopic,
-    };
-    setTopics([...topics, topicToAdd]);
+  // Function to "add" a new topic with API call
+  const addTopic = async (newTopic) => {
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch('https://learn-log-api.onrender.com/topics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title: newTopic.title,
+          goal: newTopic.goal,
+          status: newTopic.status,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || data.error || 'Failed to add topic');
+      }
+
+      const newTopicWithId = {
+        id: data.id,
+        title: newTopic.title,
+        goal: newTopic.goal,
+        status: newTopic.status,
+      };
+
+      setTopics([...topics, newTopicWithId]);
+    } catch (err) {
+      alert(`Error: ${err.message}`);
+    }
   };
 
-  // Function to delete a topic from the list
-  const deleteTopic = (id) => {
-    const updatedTopics = topics.filter((topic) => topic.id !== id);
-    setTopics(updatedTopics);
+  // Function to "delete" a topic with API call
+  const deleteTopic = async (id) => {
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch(`https://learn-log-api.onrender.com/topics/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || data.error || 'Failed to delete topic');
+      }
+
+      const updatedTopics = topics.filter((topic) => topic.id !== id);
+      setTopics(updatedTopics);
+    } catch (err) {
+      alert(`Error: ${err.message}`);
+    }
   };
 
   useEffect(() => {
@@ -50,7 +97,6 @@ function Dashboard() {
   if (error) {
     return <p>Error: {error}</p>;
   }
-
 
   return (
     <>
