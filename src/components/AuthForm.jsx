@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './AuthForm.css';
 
 function AuthForm(props) {
   const [isLoginMode, setIsLoginMode] = useState(false);
@@ -104,7 +105,11 @@ function AuthForm(props) {
         Switch to {isLoginMode ? 'Register' : 'Login'}
       </button>
 
-      {message && <p>{message}</p>}
+      {message && (
+        <p className={message.startsWith('Error') ? 'auth-message error-message' : 'auth-message success-message'}>
+      {message}
+        </p>
+      )}
     </section>
   );
 }

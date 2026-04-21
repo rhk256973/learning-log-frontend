@@ -23,3 +23,62 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
+.status-box {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.loading-box {
+  background-color: #eef8f2;
+  border: 1px solid #b7e4c7;
+  color: #1f5f46;
+}
+
+.error-box {
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #b42318;
+}
+
+.home-page {
+  max-width: 700px;
+  margin: 4rem auto;
+  text-align: center;
+  background-color: white;
+  padding: 2.5rem 2rem;
+  border: 1px solid #d1e7dd;
+  border-radius: 16px;
+}
+
+.home-page h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  color: #00684a;
+}
+
+.home-page p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+.home-page button {
+  padding: 0.85rem 1.3rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #00a35c;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.home-page button:hover {
+  background-color: #008f50;
+}

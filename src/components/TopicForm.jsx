@@ -52,11 +52,15 @@ function TopicForm(props) {
 
         <div>
           <label>Status:</label>
-          <input
-            type="text"
+          <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-          />
+          >
+            <option value="">Select status</option>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
         </div>
 
         <button type="submit">Add Topic</button>

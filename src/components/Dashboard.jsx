@@ -90,12 +90,20 @@ function Dashboard() {
     fetchTopics();
   }, []);
 
-  if (loading) {
-    return <p>Loading topics...</p>;
-  }
+   if (loading) {
+     return (
+     <section className="status-box loading-box">
+       <p>Loading topics...</p>
+     </section>
+     );
+   }
 
-  if (error) {
-    return <p>Error: {error}</p>;
+   if (error) {
+   return (
+     <section className="status-box error-box">
+       <p>Error: {error}</p>
+     </section>
+   );
   }
 
   return (
