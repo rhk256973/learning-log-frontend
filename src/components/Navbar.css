@@ -2,47 +2,59 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #00684a;
-  border-bottom: 1px solid #00533b;
+  padding: 1.25rem 3rem;
+  background-color: hsla(var(--p-h), 100%, 20%, 0.95);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid hsla(var(--p-h), 100%, 30%, 0.2);
 }
 
 .navbar h2 {
   margin: 0;
   color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 2.5rem;
   margin: 0;
   padding: 0;
 }
 
 .navbar li {
   cursor: pointer;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: transform 0.2s ease, color 0.2s ease;
+  color: hsla(var(--p-h), 20%, 90%, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .navbar li:hover {
-  opacity: 0.8;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .logout-item {
   color: #ffffff;
-  background-color: #0f4c3a;
-  padding: 0.45rem 0.9rem;
-  border-radius: 8px;
+  background-color: hsla(var(--p-h), 100%, 40%, 0.8);
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+  border: 1px solid hsla(var(--p-h), 100%, 100%, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .logout-item:hover {
-  background-color: #0b3b2d;
+  background-color: hsla(var(--p-h), 100%, 45%, 1);
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }

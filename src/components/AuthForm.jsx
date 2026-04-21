@@ -22,7 +22,6 @@ function AuthForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Determine the endpoint based on the mode (login or register)
     const endpoint = isLoginMode
       ? 'https://learn-log-api.onrender.com/users/login'
       : 'https://learn-log-api.onrender.com/users/register';
@@ -31,7 +30,6 @@ function AuthForm(props) {
       setIsLoading(true);
       setMessage('');
 
-      // Make the API request to either login or register
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -51,10 +49,10 @@ function AuthForm(props) {
 
       if (isLoginMode) {
         localStorage.setItem('token', data.token);
-        setMessage('Login successful');
+        setMessage('Welcome back! 👋');
         props.onLoginSuccess();
       } else {
-        setMessage('Register successful. You can switch to Login now!');
+        setMessage('Account created! Now you can log in. ✨');
       }
 
       setFormData({
@@ -62,53 +60,66 @@ function AuthForm(props) {
         password: '',
       });
     } catch (err) {
-      setMessage(`Error: ${err.message}`);
+      setMessage(`Oops! ${err.message}`);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <section className="form-section">
-      <h2>{isLoginMode ? 'Login Here' : 'Register Here'}</h2>
+    <section className="auth-section">
+      <div className="auth-header">
+        <h2>{isLoginMode ? 'Welcome Back' : 'Create Your Space'}</h2>
+        <p>{isLoginMode ? 'Continue your learning journey' : 'Start tracking your growth today'}</p>
+      </div>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
+      <form onSubmit={handleSubmit} className="auth-form">
+        <div className="form-group">
+          <label>Email Address</label>
           <input
             type="email"
             name="email"
+            placeholder="your@email.com"
             value={formData.email}
             onChange={handleChange}
+            required
           />
         </div>
 
-        <div>
+        <div className="form-group">
           <label>Password</label>
           <input
             type="password"
             name="password"
+            placeholder="Your password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
         </div>
 
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? 'Loading...' : isLoginMode ? 'Login' : 'Register'}
+        <button type="submit" className="primary-btn" disabled={isLoading}>
+          {isLoading ? 'Wait a sec...' : isLoginMode ? 'Log In' : 'Sign Up'}
         </button>
       </form>
 
-      <button
-        type="button"
-        onClick={() => setIsLoginMode(!isLoginMode)}
-      >
-        Switch to {isLoginMode ? 'Register' : 'Login'}
-      </button>
+      <div className="auth-footer">
+        <p>
+          {isLoginMode ? "First time here?" : "Already have an account?"}
+        </p>
+        <button
+          type="button"
+          className="text-btn"
+          onClick={() => setIsLoginMode(!isLoginMode)}
+        >
+          {isLoginMode ? 'Create an account' : 'Log in instead'}
+        </button>
+      </div>
 
       {message && (
-        <p className={message.startsWith('Error') ? 'auth-message error-message' : 'auth-message success-message'}>
-      {message}
-        </p>
+        <div className={`auth-message ${message.startsWith('Oops') ? 'error' : 'success'}`}>
+          {message}
+        </div>
       )}
     </section>
   );

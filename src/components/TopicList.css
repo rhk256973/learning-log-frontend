@@ -1,17 +1,24 @@
 .topics-section {
-  background-color: white;
-  padding: 1.5rem;
-  border: 1px solid #d1e7dd;
-  border-radius: 12px;
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius-lg);
   flex: 2;
-  min-width: 300px;
+  min-width: 350px;
+  box-shadow: var(--shadow-md);
 }
 
 .topics-section h2 {
-  background-color: white;
-  padding: 1.5rem;
-  border: 1px solid #d1e7dd;
-  border-radius: 12px;
-  flex: 2;
-  min-width: 300px;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.no-topics {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-style: italic;
+  background: var(--primary-soft);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--primary-border);
 }

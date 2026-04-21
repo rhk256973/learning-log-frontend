@@ -1,84 +1,90 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7faf8;
-  color: #1f2937;
-}
-
-#root {
-  min-height: 100vh;
-}
-
 .main-content {
-  padding: 2rem;
+  padding: clamp(1rem, 5vw, 4rem);
+  flex: 1;
 }
 
 .intro {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.intro p {
+  color: var(--text-muted);
+  font-size: 1.25rem;
 }
 
 .dashboard {
   display: flex;
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
   align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .status-box {
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 1.25rem 1.5rem;
-  border-radius: 12px;
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: var(--radius-md);
   text-align: center;
   font-weight: 600;
+  box-shadow: var(--shadow-md);
+  border: 1px solid transparent;
 }
 
 .loading-box {
-  background-color: #eef8f2;
-  border: 1px solid #b7e4c7;
-  color: #1f5f46;
+  background-color: var(--primary-soft);
+  color: var(--primary);
+  border-color: var(--primary-border);
 }
 
 .error-box {
-  background-color: #fff1f2;
-  border: 1px solid #fecdd3;
-  color: #b42318;
+  background-color: hsl(0, 100%, 98%);
+  color: hsl(0, 80%, 40%);
+  border-color: hsl(0, 50%, 90%);
 }
 
 .home-page {
-  max-width: 700px;
-  margin: 4rem auto;
+  max-width: 800px;
+  margin: 6rem auto;
   text-align: center;
-  background-color: white;
-  padding: 2.5rem 2rem;
-  border: 1px solid #d1e7dd;
-  border-radius: 16px;
+  background-color: var(--bg-card);
+  padding: 4rem 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 .home-page h1 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 3rem;
-  color: #00684a;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
 }
 
 .home-page p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  color: #4b5563;
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
 }
 
 .home-page button {
-  padding: 0.85rem 1.3rem;
+  padding: 1rem 2.5rem;
   border: none;
-  border-radius: 10px;
-  background-color: #00a35c;
-  color: white;
-  font-size: 1rem;
+  border-radius: 100px;
+  background: var(--primary);
+  color: var(--text-inv);
+  font-size: 1.1rem;
   font-weight: 600;
-  cursor: pointer;
+  box-shadow: 0 4px 15px hsla(var(--p-h), 100%, 32%, 0.3);
 }
 
 .home-page button:hover {
-  background-color: #008f50;
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsla(var(--p-h), 100%, 32%, 0.4);
 }
+
+.home-page button:active {
+  transform: translateY(0);
+}
+
+/* Removed fade-in animation for a simpler, custom feel */
