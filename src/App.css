@@ -86,5 +86,3 @@
 .home-page button:active {
   transform: translateY(0);
 }
-
-/* Removed fade-in animation for a simpler, custom feel */
